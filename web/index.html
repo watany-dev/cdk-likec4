@@ -3,16 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CDK + LikeC4 baseline</title>
+    <title>cdk-likec4</title>
   </head>
   <body>
     <main>
-      <h1>CDK + LikeC4 baseline</h1>
-      <p>小さな S3 + SSM スタックを、コード・図・不変条件・形式仕様で検証します。</p>
-      <p>構成: SSM catalog → S3 bucket（バケット名の参照）</p>
+      <h1>cdk-likec4</h1>
       <p>
-        図の正本は <code>architecture/model.c4</code>。<code>npm run diagram:export</code> で
-        SVG（Graphviz 表現） を生成します。
+        CDK の cloud assembly から LikeC4 DSL を生成し、インフラ変更と図を同じ PR で同期させる CLI
+        です。
+      </p>
+      <p>
+        図のモデル部分は CDK から生成し、人はビュー・説明文・外部システムと利用者だけを書きます。
       </p>
       <a href="https://github.com/watany-dev/cdk-likec4">ソースと実行手順</a>
     </main>

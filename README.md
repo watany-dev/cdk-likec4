@@ -3,10 +3,10 @@
 CDK の cloud assembly（`cdk.out`）から LikeC4 DSL を生成し、インフラ変更と図を同じ PR で同期させる CLI を目指すリポジトリです。
 仕様とロードマップは [docs/spec.md](docs/spec.md)。**現状は準備フェーズ（P0 PoC の前）で、CLI はまだありません。**
 
-今あるのは、検証ベースライン時代の資産です。private/versioned/encrypted な S3 bucket と、その名前を参照する
-SSM parameter の CDK サンプル、手書きの LikeC4 モデル、PBT・mutation・形式検査の検証ゲート。
+今あるのは、ゴールデンテスト用サンプル 1 号（private/versioned/encrypted な S3 bucket と、その名前を参照する
+SSM parameter の CDK stack）とその期待図、PBT・mutation・形式検査の検証ゲートです。
 資格情報なしで synth・図の検証・テストが可能で、AWS への deploy は行いません。
-サンプルは P0 で生成物のゴールデン用 fixture に移します。CI は [docs/ci.md](docs/ci.md)。
+サンプルは P0 で `fixtures/` に移します。CI は [docs/ci.md](docs/ci.md)。
 
 ## 必要環境・開始
 
@@ -37,7 +37,7 @@ bin/app.ts                    環境に依存しない CDK app
 src/artifact-store.ts          小さな construct (S3 + SSM)
 src/sample-stack.ts            1 stack
 src/naming.ts                  pure な命名・入力検証
-architecture/model.c4         手書き LikeC4 モデルと view
+architecture/model.c4         サンプルの期待 LikeC4 モデルと view
 tests/                        unit + fast-check PBT
 scripts/                      INV trace、SVG export
 formal/                       別 npm/lock/tsconfig の tla-ts 仕様
@@ -88,23 +88,13 @@ S3 の Retain とモデルの削除の意味の違いも [formal/README](formal/
 
 ## CI/CD・依存更新
 
-[CI の設計と公開制約](docs/ci.md)。用意した定義は ci（PR/main/手動）、mutation（手動/週次）、
+[CI の設計](docs/ci.md)。用意した定義は ci（PR/main/手動）、mutation（手動/週次）、
 diagram（PR/main/手動、図の artifact）。デプロイ資格情報が要る処理は入れていません。
 3つの workflow は `.github/workflows/` にあります。実行結果は GitHub Actions を確認してください。
 Dependabot の設定は公開し、npm ルート・formal・Actions を週次更新します。
 
 Vite+ は npm の安定版1.8.0を採用し、Vite/Vitest の alias/pin を公式手順に合わせています。
 更新時は `npm exec -- vp toolchain` と overrides の整合性を確認してください。
-
-## ベースラインの出典
-
-- [wisp-and-lantern](https://github.com/watany-dev/wisp-and-lantern): Vite+、PBT/INV、Stryker、CI の検証ゲート。
-- ローカル `chokkin-tla-ts`（[chokkin](https://github.com/watany-dev/chokkin) 由来）: 独立形式検査、tla-ts、negative control。
-- [lazycodecommit](https://github.com/watany-dev/lazycodecommit): strict TS、再現できる検証スクリプト、Claude skill、明確な README。
-- [irasutoya-search](https://github.com/watany-dev/irasutoya-search): README の目的・要件・制約の示し方（Go製であり TS 構成は非採用）。
-- [cf2router](https://github.com/watany-dev/cf2router): 調査時点は placeholder README のみ、技術要素の採用なし。
-
-確認コミット、読んだファイル、採否、Vite+ の公式根拠は [出典一覧](docs/baseline-sources.md)。
 
 ## License
 

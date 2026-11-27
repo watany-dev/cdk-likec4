@@ -33,6 +33,3 @@ CDK の synth PBT が実際の CloudFormation Ref と図の向きを検査し、
 この抽象モデルに接続する。ただしプログラムと仕様の refinement 証明ではない。
 S3 の Retain により実物は残る。`deleteBucket` は物理削除のモデルではない。
 AWS 障害・IAM・並行デプロイ・データ保存・任意サイズの依存グラフは対象外。
-
-出典: ローカル `chokkin-tla-ts` の独立 npm プロジェクト構成、生成物の区別、
-全状態検査と破壊テストの併用。詳細は [`../docs/baseline-sources.md`](../docs/baseline-sources.md)。
