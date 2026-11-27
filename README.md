@@ -1,12 +1,12 @@
 # cdk-likec4
 
-AWS CDK + LikeC4 を、プロパティテストと小さな形式仕様で検証する TypeScript ベースライン。
-プロダクト完成版ではなく、構成・検証・エージェント用手順をまとめた最小の土台です。
+CDK の cloud assembly（`cdk.out`）から LikeC4 DSL を生成し、インフラ変更と図を同じ PR で同期させる CLI を目指すリポジトリです。
+仕様とロードマップは [docs/spec.md](docs/spec.md)。**現状は準備フェーズ（P0 PoC の前）で、CLI はまだありません。**
 
-**例:** private/versioned/encrypted な S3 bucket と、その名前を参照する SSM parameter。
-資格情報なしで synth・図の検証・テストが可能です。AWS への deploy は行いません。
-**公開制約:** Actions の3定義は初回公開 token の scope 不足によりローカル clone のみに保存。
-公開リポの CI が稼働しているわけではありません。詳しくは [CI](docs/ci.md)。
+今あるのは、検証ベースライン時代の資産です。private/versioned/encrypted な S3 bucket と、その名前を参照する
+SSM parameter の CDK サンプル、手書きの LikeC4 モデル、PBT・mutation・形式検査の検証ゲート。
+資格情報なしで synth・図の検証・テストが可能で、AWS への deploy は行いません。
+サンプルは P0 で生成物のゴールデン用 fixture に移します。CI は [docs/ci.md](docs/ci.md)。
 
 ## 必要環境・開始
 
@@ -42,6 +42,7 @@ tests/                        unit + fast-check PBT
 scripts/                      INV trace、SVG export
 formal/                       別 npm/lock/tsconfig の tla-ts 仕様
 web/                          Vite+ の最小説明ページ
+docs/spec.md                  CLI の仕様とロードマップ
 docs/invariants.md            INV-1 ～ INV-5 の契約
 .claude/skills/                construct 変更用 skill
 CLAUDE.md                     steering
