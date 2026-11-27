@@ -8,6 +8,13 @@ updates:
       vite-plus-toolchain:
         patterns: ["vite-plus", "vite", "vitest", "@vitest/*"]
     open-pull-requests-limit: 5
+    ignore:
+      # Stryker 10 が TS 7 の API で起動時に落ちる（mutation は PR CI の対象外）
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
+      # Node は .nvmrc で 24 に固定。型だけ先に上げない
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: npm
     directory: /formal
     schedule:
