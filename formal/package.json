@@ -1,0 +1,19 @@
+{
+  "name": "cdk-likec4-formal",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "check": "tla-ts src/deployment.ts",
+    "test": "npm run typecheck && npm run check && node scripts/negative-control.mjs"
+  },
+  "devDependencies": {
+    "tla-ts": "0.0.10",
+    "typescript": "6.0.2"
+  },
+  "engines": {
+    "node": ">=24.11.0 <25"
+  }
+}

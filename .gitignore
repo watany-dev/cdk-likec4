@@ -1,0 +1,15 @@
+node_modules/
+cdk.out/
+dist/
+coverage/
+reports/
+diagrams/
+.cache/
+.stryker-tmp/
+formal/src/*.tla
+formal/src/*.cfg
+formal/states/
+formal/.negative-*/
+.env
+.env.*
+*.tsbuildinfo

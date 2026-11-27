@@ -1,0 +1,56 @@
+{
+  "name": "cdk-likec4",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Credential-free AWS CDK + LikeC4 baseline with property and formal checks",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/watany-dev/cdk-likec4.git"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "build": "vp build",
+    "preview": "vp preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "vp lint --deny-warnings",
+    "format": "vp fmt",
+    "format:check": "vp fmt --check",
+    "test": "vp test run --coverage",
+    "test:watch": "vp test watch",
+    "test:pbt": "vp test run pbt",
+    "synth": "cdk synth --no-lookups --quiet",
+    "diagram:validate": "likec4 validate architecture",
+    "diagram:export": "likec4 gen dot architecture -o diagrams && node scripts/export-svg.mjs",
+    "formal:install": "npm --prefix formal ci",
+    "formal:check": "npm --prefix formal test",
+    "trace": "node scripts/check-invariants.mjs",
+    "mutation": "stryker run",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run trace && npm test && npm run synth && npm run diagram:validate && npm run formal:check && npm run build"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.278.0",
+    "constructs": "10.5.0"
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "10.1.1",
+    "@stryker-mutator/vitest-runner": "10.1.1",
+    "@types/node": "24.10.1",
+    "@vitest/coverage-v8": "5.1.1",
+    "aws-cdk": "2.1149.0",
+    "fast-check": "4.11.0",
+    "likec4": "1.61.1",
+    "tsx": "4.21.0",
+    "typescript": "6.0.2",
+    "vite-plus": "1.8.0"
+  },
+  "overrides": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@8.3.8001",
+    "vitest": "5.1.1"
+  },
+  "engines": {
+    "node": ">=24.11.0 <25"
+  },
+  "packageManager": "npm@10.9.4"
+}

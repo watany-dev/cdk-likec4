@@ -1,0 +1,19 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      vite-plus-toolchain:
+        patterns: ["vite-plus", "vite", "vitest", "@vitest/*"]
+    open-pull-requests-limit: 5
+  - package-ecosystem: npm
+    directory: /formal
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

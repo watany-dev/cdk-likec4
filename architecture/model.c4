@@ -1,0 +1,32 @@
+specification {
+  element system
+  element resource
+}
+
+model {
+  sample = system 'Artifact store' {
+    bucket = resource 'Artifact bucket' {
+      description 'Private, encrypted, versioned S3 storage; retained on deletion'
+      technology 'Amazon S3'
+      metadata {
+        awsType 'AWS::S3::Bucket'
+        constructPath 'Artifacts/Bucket/Resource'
+      }
+    }
+    catalog = resource 'Bucket catalog' {
+      description 'SSM parameter holding the generated bucket name'
+      technology 'AWS Systems Manager Parameter Store'
+      metadata {
+        awsType 'AWS::SSM::Parameter'
+        constructPath 'Artifacts/Catalog/Resource'
+      }
+    }
+    catalog -> bucket 'Stores bucket name; CloudFormation Ref dependency'
+  }
+}
+
+views {
+  view overview {
+    include *
+  }
+}
