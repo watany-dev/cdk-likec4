@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "aws-cdk-lib": "2.278.0",
-    "constructs": "10.5.0"
+    "constructs": "10.8.1"
   },
   "devDependencies": {
     "@stryker-mutator/core": "10.1.1",
@@ -41,7 +41,7 @@
     "aws-cdk": "2.1149.0",
     "fast-check": "4.11.0",
     "likec4": "1.61.1",
-    "tsx": "4.21.0",
+    "tsx": "4.23.15",
     "typescript": "6.0.2",
     "vite-plus": "1.8.0"
   },
