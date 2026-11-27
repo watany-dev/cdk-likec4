@@ -1,9 +1,9 @@
 ---
 name: change-construct
-description: CDK construct や stack を追加・変更するとき、LikeC4・不変条件・PBT・形式仕様を同期し、資格情報なしで検証する。
+description: ゴールデンテスト用サンプルの CDK construct や stack を追加・変更するとき、期待図（LikeC4）・不変条件・PBT・形式仕様を同期し、資格情報なしで検証する。
 ---
 
-# Construct を安全に変更する
+# サンプルの construct を安全に変更する
 
 1. `CLAUDE.md` と `docs/invariants.md` を読み、影響する既存 ID を選ぶ。新しい条件だけ末尾に新番号を追加し、既存 ID を再利用しない。
 2. `tests/stack.pbt.test.ts` または unit test に失敗ケースを先に足す。PBT は実際の `.c4` を LikeC4 API で読むこと。テスト側に同じ図を別途ハードコードして照合したふりをしない。

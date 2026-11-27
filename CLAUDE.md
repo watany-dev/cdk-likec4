@@ -9,8 +9,8 @@ Node 24 / npm / strict TypeScript / Vite+。単一 npm パッケージで始め�
 - 図のモデル部分の正本は CDK（cloud assembly）。人が書くのはビュー・説明文・外部システムと利用者だけ。
 - 処理は Loader → Extractor → Inference → Mapper → Emitter の一方向。I/O は Loader と Emitter に限り、
   ほかは純粋関数にする。P0 から `src/core/`（I/O なし）と `src/cli/`（Loader・Emitter・CLI）に分ける。
-- 現在の `src/`（S3 + SSM の SampleStack）と手書き `architecture/model.c4` は検証ベースライン時代の資産。
-  P0 で `fixtures/` 配下のゴールデン用サンプル 1 号に移し、生成物の期待値として使う。
+- `src/` の S3 + SSM SampleStack と `architecture/model.c4` は、ゴールデンテスト用サンプル 1 号とその期待図。
+  P0 で `fixtures/` 配下に移す。
 - `tests/` unit/PBT、`formal/` 独立 npm プロジェクト（tla-ts）、`web/` 最小説明ページ。
 
 ## ハードルール

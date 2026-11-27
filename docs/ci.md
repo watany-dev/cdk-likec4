@@ -1,7 +1,5 @@
-# CI と公開上の制約
+# CI
 
-初回公開時は OAuth token に `workflow` scope がなく `.github/workflows/` を push できなかったため、
-3ファイルは後続の PR で追加した。Dependabot 設定は初回から公開対象。
 **ローカルでの検証成功と GitHub Actions 上の成功は別物。** 実行結果は Actions タブで確認する。
 
 | Workflow     | trigger               | 実行                                                                                                                                                      |

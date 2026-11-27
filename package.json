@@ -2,7 +2,7 @@
   "name": "cdk-likec4",
   "version": "0.1.0",
   "private": true,
-  "description": "Credential-free AWS CDK + LikeC4 baseline with property and formal checks",
+  "description": "Generate LikeC4 diagrams from AWS CDK cloud assemblies",
   "license": "MIT",
   "repository": {
     "type": "git",

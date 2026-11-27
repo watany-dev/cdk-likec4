@@ -1,7 +1,5 @@
 # cdk-likec4 仕様書とロードマップ
 
-初版: 2026-11-27。準備フェーズで Node 24 固定・単一パッケージ開始の決定を反映。
-
 ## 1. 概要
 
 cdk-likec4(仮称)は、CDKアプリのcloud assemblyからLikeC4 DSLを生成し、インフラの変更と図を同じPRで同期させるCLIです。
@@ -349,9 +347,8 @@ v1.0まで準備 + 5フェーズ、合計約21週を見込みます。期間は1
 
 **準備(約1週)**
 
-- 検証ベースライン(手書き `.c4` を正本とする S3 + SSM サンプル)から、本仕様の CLI 開発へ steering・README・不変条件の方針を切り替える
-- Node 24 固定、単一パッケージで開始することを決定済み
-- 完了条件: CLAUDE.md・README・`docs/invariants.md` が本仕様の目的と矛盾しない
+- steering・README・不変条件の文書を本仕様に揃える。Node 24 固定、単一パッケージで開始する
+- 完了条件: CLAUDE.md・README・`docs/invariants.md` が本仕様と矛盾しない
 
 **P0 PoC(約2週)**
 
