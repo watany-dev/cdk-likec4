@@ -89,7 +89,7 @@ S3 の Retain とモデルの削除の意味の違いも [formal/README](formal/
 
 [CI の設計と公開制約](docs/ci.md)。用意した定義は ci（PR/main/手動）、mutation（手動/週次）、
 diagram（PR/main/手動、図の artifact）。デプロイ資格情報が要る処理は入れていません。
-初回 token に workflow scope がないため3つの workflow は公開 main に未反映です。
+3つの workflow は `.github/workflows/` にあります。実行結果は GitHub Actions を確認してください。
 Dependabot の設定は公開し、npm ルート・formal・Actions を週次更新します。
 
 Vite+ は npm の安定版1.8.0を採用し、Vite/Vitest の alias/pin を公式手順に合わせています。
