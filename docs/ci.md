@@ -27,4 +27,3 @@ npm run diagram:export
 カバレッジは `src/` 全体95%以上、mutation は `src/` 全体90%以上を要求する。
 formal は別プロジェクトで検査し、通常の Vitest や Stryker の対象に混ぜない。
 図 SVG は Graphviz の表現であり LikeC4 UI の screenshot ではない。
-Chromium の download を不要にするためこの経路を選んだ。

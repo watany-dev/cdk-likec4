@@ -10,7 +10,7 @@ SSM parameter の CDK stack）とその期待図、PBT・mutation・形式検査
 
 ## 必要環境・開始
 
-Node.js **24.22.1**（`.nvmrc`、最低24.11）、npm 10.9.4、git。
+Node.js **24.22.1**（`.nvmrc`、最低24.11）、npm 11.19.1（Node 同梱版）、git。
 Vite+ の global install、AWS CLI/アカウント、Java、Graphviz の native binary は不要です。
 
 ```sh
@@ -19,15 +19,6 @@ cd cdk-likec4
 npm ci
 npm run formal:install
 npm run check
-```
-
-小さい `/tmp` 環境では install/clone の前に、十分なディスクのある場所を設定してください。
-この作業環境では次を使用しています。
-
-```sh
-mkdir -p ~/workspace/cdk-likec4-build/{tmp,npm-cache}
-export TMPDIR=~/workspace/cdk-likec4-build/tmp
-export npm_config_cache=~/workspace/cdk-likec4-build/npm-cache
 ```
 
 ## 構成
