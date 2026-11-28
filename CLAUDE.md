@@ -41,3 +41,15 @@ FC_RUNS=1000 FC_SEED=42 npm run test:pbt
 （P0 で生成器向けの手順に置き換える）。
 feature branch で作業し、修正は失敗テストから始め、push 前に上記検証を回す。
 CI は `docs/ci.md` を参照。ローカル成功と GitHub Actions 実行を混同しない。
+
+## エージェントワークフロー（pstack）
+
+`.claude/settings.json` で poteto の pstack（`pstack@cursor-plugins`、upstream は `cursor/plugins` の `pstack/`）を有効にしている。
+フォルダを信頼すると Claude Code がマーケットプレイスと plugin の導入を求める。
+
+- 初回だけ `/pstack:setup-pstack` でモデルと推論予算を選ぶ。結果は `~/.claude/rules/pstack-models.md`（ユーザー側）に書かれる。
+  モデル設定をこのリポジトリや CLAUDE.md に書かない。
+- 非自明な作業は `/pstack:poteto-mode <やりたいこと>` から始め、playbook に従う。迷ったら `/pstack:poteto-help`。
+- 優先順位は、このファイルのハードルール > pstack の skill・playbook。pstack が Cursor 専用機能（Bugbot、Automations など）を
+  要求したら、その手順は飛ばして理由を 1 行残す。
+- pstack が書く PR・コミットも conventional commits とし、「コマンド」の検証を push 前に回す。

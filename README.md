@@ -36,6 +36,7 @@ web/                          Vite+ の最小説明ページ
 docs/spec.md                  CLI の仕様とロードマップ
 docs/invariants.md            INV-1 ～ INV-5 の契約
 .claude/skills/                construct 変更用 skill
+.claude/settings.json         Claude Code 用 pstack plugin の有効化
 CLAUDE.md                     steering
 .github/dependabot.yml        npm (root/formal) + Actions
 ```
